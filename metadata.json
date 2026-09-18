@@ -1,0 +1,6 @@
+{
+  "name": "HisabAI",
+  "description": "The operating memory for local commerce. Scan once. Remember everything. Run the shop smarter.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
