@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 select-none whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 select-none whitespace-nowrap focus:outline-hidden focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none active:translate-y-0';
 
   const sizeStyles = {
     sm: 'text-xs px-3 py-1.5 gap-1.5 focus:ring-indigo-500',
@@ -27,11 +27,15 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: 'bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 shadow-xs border border-transparent',
-    secondary: 'bg-slate-100 text-slate-800 hover:bg-slate-200 active:bg-slate-300 border border-slate-200/80',
-    outline: 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-300 active:bg-slate-100 shadow-xs',
-    ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 border border-transparent',
-    danger: 'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 border border-transparent'
+    primary:
+      'bg-gradient-to-br from-indigo-500 to-indigo-700 text-white hover:to-indigo-800 active:to-indigo-900 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/30 hover:-translate-y-px border border-indigo-700/20',
+    secondary:
+      'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-2xs hover:shadow-sm hover:-translate-y-px',
+    outline:
+      'bg-white/80 text-slate-700 hover:bg-white hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-2xs hover:shadow-sm hover:-translate-y-px',
+    ghost: 'text-slate-600 hover:text-indigo-700 hover:bg-indigo-50/70 active:bg-indigo-100/70 border border-transparent',
+    danger:
+      'bg-gradient-to-br from-rose-500 to-rose-700 text-white hover:to-rose-800 active:to-rose-900 shadow-lg shadow-rose-600/20 hover:shadow-rose-600/30 hover:-translate-y-px border border-rose-700/20'
   };
 
   return (

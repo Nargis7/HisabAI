@@ -84,11 +84,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="w-64 shrink-0 bg-white border-r border-slate-200/90 flex flex-col h-screen sticky top-0 select-none">
+    <aside className="w-64 shrink-0 bg-white/85 backdrop-blur-xl border-r border-slate-200/70 hidden md:flex flex-col h-screen sticky top-0 select-none">
       {/* Brand Header */}
       <div className="p-5 border-b border-slate-100">
         <div className="flex items-center gap-2.5 mb-1.5">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-xs">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold text-base shadow-lg shadow-indigo-500/30 ring-1 ring-white/25">
             <Store className="w-4 h-4" />
           </div>
           <div>
@@ -109,7 +109,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <button
           id="btn-sidebar-scan-customer"
           onClick={onOpenScan}
-          className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-semibold text-sm shadow-sm transition-all duration-150 flex items-center justify-center gap-2.5 group cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="w-full py-3 px-4 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 hover:from-indigo-500 hover:to-indigo-800 active:to-indigo-900 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/35 hover:-translate-y-px transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           <div className="p-1 rounded-md bg-white/15 text-white group-hover:scale-105 transition-transform">
             <QrCode className="w-4 h-4" />
@@ -144,10 +144,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+              className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-150 ${
                 isActive
-                  ? 'bg-indigo-50/80 text-indigo-700 font-semibold'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  ? 'bg-indigo-50 text-indigo-700 font-semibold shadow-2xs before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[3px] before:rounded-r-full before:bg-indigo-600'
+                  : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900'
               }`}
             >
               <div className="flex items-center gap-2.5">
@@ -173,10 +173,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div>
           <button
             onClick={() => setIsMoreOpen(!isMoreOpen)}
-            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+            className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-150 ${
               isMoreActive
-                ? 'bg-indigo-50/80 text-indigo-700 font-semibold'
-                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                ? 'bg-indigo-50 text-indigo-700 font-semibold shadow-2xs before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[3px] before:rounded-r-full before:bg-indigo-600'
+                : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900'
             }`}
           >
             <div className="flex items-center gap-2.5">

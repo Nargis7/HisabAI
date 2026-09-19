@@ -252,19 +252,31 @@ export function App() {
     storageService.deleteProduct(productId);
   };
 
+  // The sidebar's sign-out control routes to the 'login' tab, which is not a
+  // workspace tab and has no branch below — treat it as an explicit sign-out
+  // so it lands on LoginPage instead of rendering an empty workspace.
+  const handleNavigate = (tab: NavigationTab) => {
+    if (tab === 'login') {
+      setCurrentTab('dashboard');
+      setIsAuthenticated(false);
+      return;
+    }
+    setCurrentTab(tab);
+  };
+
   // If user signed out, show clean login page
   if (!isAuthenticated) {
     return <LoginPage onSignInSuccess={() => setIsAuthenticated(true)} />;
   }
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] flex flex-col text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen app-canvas flex flex-col text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
       {/* Main Workspace Layout */}
       <div className="flex-1 flex overflow-hidden">
         {/* Desktop Left Sidebar */}
         <Sidebar
           currentTab={currentTab}
-          onNavigate={(tab: NavigationTab) => setCurrentTab(tab)}
+          onNavigate={handleNavigate}
           onOpenScan={() => setIsScanModalOpen(true)}
           onOpenVoice={() => setIsVoiceModalOpen(true)}
           onOpenSearch={() => setIsSearchModalOpen(true)}
@@ -299,7 +311,8 @@ export function App() {
                   setTransactionTargetCustomer(null);
                   setIsNewTransactionModalOpen(true);
                 }}
-                onNavigate={setCurrentTab}
+                onOpenNewCustomer={() => setIsNewCustomerModalOpen(true)}
+                onNavigate={handleNavigate}
                 onSelectCustomer={(id) => {
                   setSelectedCustomerId(id);
                   setCurrentTab('customers');

@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({
   unreadCount = 3
 }) => {
   return (
-    <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-6 py-3">
+    <header className="sticky top-0 z-30 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 shadow-[0_1px_2px_rgba(16,24,40,0.03)] px-4 sm:px-6 py-3">
       <div className="flex items-center justify-between gap-3">
         {/* Left: Mobile hamburger & Shop Title */}
         <div className="flex items-center gap-2.5">
@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex-1 max-w-xl mx-2">
           <button
             onClick={onOpenSearch}
-            className="w-full h-10 px-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100/80 text-slate-500 hover:text-slate-800 text-xs flex items-center justify-between transition-colors shadow-2xs group"
+            className="w-full h-10 px-4 rounded-full border border-slate-200/80 bg-white/70 hover:bg-white hover:border-indigo-200 text-slate-500 hover:text-slate-800 text-xs flex items-center justify-between transition-all duration-200 shadow-2xs hover:shadow-sm group"
           >
             <div className="flex items-center gap-2.5 min-w-0">
               <Search className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 transition-colors shrink-0" />
